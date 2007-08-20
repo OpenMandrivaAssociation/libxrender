@@ -1,7 +1,7 @@
 %define libxrender %mklibname xrender 1
 Name: libxrender
 Summary:  X Render Library
-Version: 0.9.2
+Version: 0.9.3
 Release: %mkrel 1
 Group: Development/X11
 License: MIT
