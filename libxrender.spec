@@ -2,7 +2,7 @@
 Name: libxrender
 Summary:  X Render Library
 Version: 0.9.4
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -11,9 +11,11 @@ Source0: http://xorg.freedesktop.org/releases/individual/lib/libXrender-%{versio
 Patch0: libXrender-0.9.1-dmx.patch
 BuildRoot: %{_tmppath}/%{name}-root
 
-BuildRequires: libx11-devel >= 1.0.0
-BuildRequires: x11-proto-devel >= 1.0.0
-BuildRequires: x11-util-macros >= 1.0.1
+BuildRequires: x11-util-macros		>= 1.1.5
+BuildRequires: libx11-devel		>= 1.1.3
+BuildRequires: libxdmcp-devel		>= 1.0.2
+BuildRequires: libxau-devel		>= 1.0.3
+BuildRequires: x11-proto-devel		>= 7.3
 
 %description
 X Render Library
