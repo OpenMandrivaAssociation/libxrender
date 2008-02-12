@@ -11,11 +11,9 @@ Source0: http://xorg.freedesktop.org/releases/individual/lib/libXrender-%{versio
 Patch0: libXrender-0.9.1-dmx.patch
 BuildRoot: %{_tmppath}/%{name}-root
 
-BuildRequires: x11-util-macros		>= 1.1.5
-BuildRequires: libx11-devel		>= 1.1.3
-BuildRequires: libxdmcp-devel		>= 1.0.2
-BuildRequires: libxau-devel		>= 1.0.3
-BuildRequires: x11-proto-devel		>= 7.3
+BuildRequires: libx11-devel >= 1.0.0
+BuildRequires: x11-proto-devel >= 1.0.0
+BuildRequires: x11-util-macros >= 1.0.1
 
 %description
 X Render Library
