@@ -92,8 +92,12 @@ rm -rf %{buildroot}
 %clean
 rm -rf %{buildroot}
 
+%if %mdkversion < 200900
 %post -n %{libxrender} -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %{libxrender} -p /sbin/ldconfig
+%endif
 
 %files -n %{libxrender}
 %defattr(-,root,root)
