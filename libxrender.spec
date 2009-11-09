@@ -88,6 +88,7 @@ Static development files for %{name}
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+rm -f %{buildroot}%_datadir/doc/libXrender/libXrender.txt
 
 %clean
 rm -rf %{buildroot}
