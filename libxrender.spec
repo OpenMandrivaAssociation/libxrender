@@ -2,7 +2,7 @@
 Name: libxrender
 Summary:  X Render Library
 Version: 0.9.5
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -55,6 +55,8 @@ fi
 %{_libdir}/libXrender.la
 %{_libdir}/pkgconfig/xrender.pc
 %{_includedir}/X11/extensions/Xrender.h
+%dir %{_docdir}/libXrender
+%{_docdir}/libXrender/*
 
 #-----------------------------------------------------------
 
@@ -88,7 +90,6 @@ Static development files for %{name}
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-rm -f %{buildroot}%_datadir/doc/libXrender/libXrender.txt
 
 %clean
 rm -rf %{buildroot}
