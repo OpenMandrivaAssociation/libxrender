@@ -1,8 +1,11 @@
-%define libxrender %mklibname xrender 1
+%define libname %mklibname xrender 1
+%define develname %mklibname xrender -d
+%define staticname %mklibname xrender -d
+
 Name: libxrender
 Summary:  X Render Library
 Version: 0.9.6
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -20,36 +23,38 @@ X Render Library
 
 #-----------------------------------------------------------
 
-%package -n %{libxrender}
+%package -n %{libname}
 Summary:  X Render Library
 Group: Development/X11
 Conflicts: libxorg-x11 < 7.0
 Provides: %{name} = %{version}
 
-%description -n %{libxrender}
+%description -n %{libname}
 X Render Library
 
 #-----------------------------------------------------------
 
-%package -n %{libxrender}-devel
+%package -n %{develname}
 Summary: Development files for %{name}
 Group: Development/X11
-Requires: %{libxrender} = %{version}
+Requires: %{libname} = %{version}-%{release}
 Requires: x11-proto-devel >= 1.0.0
 Requires: libx11-devel >= 1.0.0
 Provides: libxrender-devel = %{version}-%{release}
+Provides: libxrender1-devel = %{version}-%{release}
+Obsoletes: %{mklibname xrender 1 -d}
 
 Conflicts: libxorg-x11-devel < 7.0
 
-%description -n %{libxrender}-devel
+%description -n %{develname}
 Development files for %{name}
 
-%pre -n %{libxrender}-devel
+%pre -n %{develname}
 if [ -h %{_includedir}/X11 ]; then
 	rm -f %{_includedir}/X11
 fi
 
-%files -n %{libxrender}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/libXrender.so
 %{_libdir}/libXrender.la
@@ -60,18 +65,20 @@ fi
 
 #-----------------------------------------------------------
 
-%package -n %{libxrender}-static-devel
+%package -n %{staticname}
 Summary: Static development files for %{name}
 Group: Development/X11
-Requires: %{libxrender}-devel = %{version}
+Requires: %{develname} = %{version}-%{release}
 Provides: libxrender-static-devel = %{version}-%{release}
+Provides: libxrender1-static-devel = %{version}-%{release}
+Obsoletes: %{mklibname xrender 1 -s -d}
 
 Conflicts: libxorg-x11-static-devel < 7.0
 
-%description -n %{libxrender}-static-devel
+%description -n %{staticname}
 Static development files for %{name}
 
-%files -n %{libxrender}-static-devel
+%files -n %{staticname}
 %defattr(-,root,root)
 %{_libdir}/libXrender.a
 
@@ -95,13 +102,13 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}
 
 %if %mdkversion < 200900
-%post -n %{libxrender} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
 %endif
 %if %mdkversion < 200900
-%postun -n %{libxrender} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 %endif
 
-%files -n %{libxrender}
+%files -n %{libname}
 %defattr(-,root,root)
 %{_libdir}/libXrender.so.1
 %{_libdir}/libXrender.so.1.3.0
