@@ -1,6 +1,6 @@
 %define libname %mklibname xrender 1
 %define develname %mklibname xrender -d
-%define staticname %mklibname xrender -d
+%define staticname %mklibname xrender -s -d
 
 Name: libxrender
 Summary:  X Render Library
