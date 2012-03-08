@@ -5,7 +5,7 @@
 Name: libxrender
 Summary:  X Render Library
 Version: 0.9.6
-Release: 4
+Release: 5
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -56,11 +56,6 @@ Development files for %{name}
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-%pre -n %{develname}
-if [ -h %{_includedir}/X11 ]; then
-	rm -f %{_includedir}/X11
-fi
 
 %files -n %{libname}
 %defattr(-,root,root)
