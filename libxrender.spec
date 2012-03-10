@@ -4,14 +4,14 @@
 
 Name: libxrender
 Summary:  X Render Library
-Version: 0.9.6
-Release: 5
+Version: 0.9.7
+Release: 1
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/lib/libXrender-%{version}.tar.bz2
 # (fc) disable Xrender on DMX (Mdk bug #19925)
-Patch0: libXrender-0.9.1-dmx.patch
+Patch0: libXrender-0.9.7-dmx.patch
 
 BuildRequires: libx11-devel >= 1.0.0
 BuildRequires: x11-proto-devel >= 1.0.0
