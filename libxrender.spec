@@ -5,7 +5,7 @@
 Name: libxrender
 Summary:  X Render Library
 Version: 0.9.7
-Release: 1
+Release: 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -34,6 +34,7 @@ Summary: Development files for %{name}
 Group: Development/X11
 Requires: %{libname} = %{version}-%{release}
 Provides: libxrender-devel = %{version}-%{release}
+Provides: libxrender%{major}-devel = %{version}-%{release}
 Obsoletes: %{_lib}xrender1-devel
 Obsoletes: %{_lib}xrender-static-devel
 Conflicts: libxorg-x11-devel < 7.0
