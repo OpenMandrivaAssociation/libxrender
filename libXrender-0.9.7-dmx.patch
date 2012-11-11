@@ -1,0 +1,21 @@
+diff --git a/src/Xrender.c b/src/Xrender.c
+index 769503a..0dfe065 100644
+--- a/src/Xrender.c
++++ b/src/Xrender.c
+@@ -284,9 +284,15 @@ XRenderFindDisplay (Display *dpy)
+     XRenderExtDisplayInfo *dpyinfo;
+ 
+     dpyinfo = XRenderExtFindDisplay (&XRenderExtensionInfo, dpy);
+-    if (!dpyinfo)
++    if (!dpyinfo) {
++	const char *env;
++    	env = getenv ("XORG_ENABLE_XRENDER_DMX");
++	if (!strstr (ServerVendor (dpy), "DMX") ||
++			(env && env[0] == '1')) {
+ 	dpyinfo = XRenderExtAddDisplay (&XRenderExtensionInfo, dpy,
+                                         XRenderExtensionName);
++		}
++	}
+     return dpyinfo;
+ }
+ 
