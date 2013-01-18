@@ -5,7 +5,7 @@
 Name:		libxrender
 Summary:	X Render Library
 Version:	0.9.7
-Release:	2
+Release:	3
 Group:		Development/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
@@ -18,7 +18,7 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-util-macros >= 1.0.1
 
 %description
-X Render Library
+X Render Library.
 
 %package -n %{libname}
 Summary:	X Render Library
@@ -27,7 +27,7 @@ Conflicts:	libxorg-x11 < 7.0
 Provides:	%{name} = %{EVRD}
 
 %description -n %{libname}
-X Render Library
+X Render Library.
 
 %package -n %{develname}
 Summary:	Development files for %{name}
@@ -39,7 +39,7 @@ Obsoletes:	%{_lib}xrender-static-devel < 0.9.7
 Conflicts:	libxorg-x11-devel < 7.0
 
 %description -n %{develname}
-Development files for %{name}
+Development files for %{name}.
 
 %prep
 %setup -qn libXrender-%{version}
@@ -54,7 +54,6 @@ Development files for %{name}
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %files -n %{libname}
