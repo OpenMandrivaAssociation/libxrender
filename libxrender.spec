@@ -12,6 +12,7 @@ URL:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXrender-%{version}.tar.bz2
 # (fc) disable Xrender on DMX (Mdk bug #19925)
 Patch0:		libXrender-0.9.7-dmx.patch
+Patch1:		aarch64.patch
 
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	x11-proto-devel >= 1.0.0
@@ -44,6 +45,7 @@ Development files for %{name}.
 %prep
 %setup -qn libXrender-%{version}
 %patch0 -p1 -b .dmx
+%patch1 -p1 -b .aarch64
 
 %build
 %configure2_5x \
