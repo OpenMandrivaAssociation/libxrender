@@ -5,7 +5,7 @@
 Name:		libxrender
 Summary:	X Render Library
 Version:	0.9.7
-Release:	3
+Release:	4
 Group:		Development/X11
 License:	MIT
 URL:		http://xorg.freedesktop.org
