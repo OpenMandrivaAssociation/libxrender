@@ -2,17 +2,16 @@
 %define libname %mklibname xrender %{major}
 %define devname %mklibname xrender -d
 
+%global optflags %{optflags} -O3
+
 Summary:	X Render Library
 Name:		libxrender
 Version:	0.9.10
-Release:	2
+Release:	3
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXrender-%{version}.tar.bz2
-# (fc) disable Xrender on DMX (Mdk bug #19925)
-Patch0:		libXrender-0.9.7-dmx.patch
-
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xproto)
@@ -38,8 +37,7 @@ Provides:	libxrender-devel = %{EVRD}
 Development files for %{name}.
 
 %prep
-%setup -qn libXrender-%{version}
-%apply_patches
+%autosetup -n libXrender-%{version} -p1
 
 %build
 %configure \
@@ -47,10 +45,10 @@ Development files for %{name}.
 	--x-includes=%{_includedir} \
 	--x-libraries=%{_libdir}
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libXrender.so.%{major}*
