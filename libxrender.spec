@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xproto)
 %if %{with compat32}
+BuildRequires:	libc6
 BuildRequires:	devel(libX11)
 BuildRequires:	devel(libxcb)
 BuildRequires:	devel(libXau)
@@ -72,7 +73,7 @@ Development files for %{name}.
 
 %prep
 %autosetup -n libXrender-%{version} -p1
-export CONFIGURE_TOP="`pwd`"
+export CONFIGURE_TOP="$(pwd)"
 %if %{with compat32}
 mkdir build32
 cd build32
@@ -106,7 +107,7 @@ cd build
 %{_libdir}/pkgconfig/xrender.pc
 %{_includedir}/X11/extensions/Xrender.h
 %dir %{_docdir}/libXrender
-%{_docdir}/libXrender/*
+%doc %{_docdir}/libXrender/*
 
 %if %{with compat32}
 %files -n %{lib32name}
