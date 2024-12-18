@@ -18,12 +18,12 @@
 
 Summary:	X Render Library
 Name:		libxrender
-Version:	0.9.11
-Release:	2
+Version:	0.9.12
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		https://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXrender-%{version}.tar.xz
+Source0:	https://xorg.freedesktop.org/releases/individual/lib/libXrender-%{version}.tar.xz
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xproto)
