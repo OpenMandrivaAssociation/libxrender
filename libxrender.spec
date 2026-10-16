@@ -18,7 +18,7 @@
 
 Summary:	X Render Library
 Name:		libxrender
-Version:	0.9.12
+Version:	0.9.13
 Release:	1
 Group:		Development/X11
 License:	MIT
