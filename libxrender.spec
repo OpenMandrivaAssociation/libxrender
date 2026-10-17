@@ -19,7 +19,7 @@
 Summary:	X Render Library
 Name:		libxrender
 Version:	0.9.13
-Release:	1
+Release:	2
 Group:		Development/X11
 License:	MIT
 Url:		https://xorg.freedesktop.org
@@ -34,6 +34,12 @@ BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xproto)
 %if %{with compat32}
 BuildRequires:	libc6
+# clang -m32 links against the i686 sysroot, which is not in the default chroot.
+BuildRequires:	cross-i686-openmandriva-linux-gnu-clang
+BuildRequires:	cross-i686-openmandriva-linux-gnu-libc
+BuildRequires:	cross-i686-openmandriva-linux-gnu-gcc
+BuildRequires:	cross-i686-openmandriva-linux-gnu-binutils
+BuildRequires:	cross-i686-openmandriva-linux-gnu-kernel-headers
 BuildRequires:	devel(libX11)
 BuildRequires:	devel(libxcb)
 BuildRequires:	devel(libXau)
